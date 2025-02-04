@@ -1,0 +1,342 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffffff; /* Sleek, shiny polished white */
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto; /* Enable vertical scrollbar if content overflows */
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on mobile devices */
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+}
+
+/* Adding shine effect for the background */
+body {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), #ffffff;
+  box-shadow: inset 0px 0px 60px rgba(255, 255, 255, 0.5); /* Subtle inner glow for polished effect */
+}
+
+/* Header styling for file name */
+.file-name-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.file-name-input {
+  padding: 12px;
+  font-size: 18px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.file-name-input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Full-screen Monaco editor styling */
+.monaco-editor {
+  width: 100vw; /* Full width */
+  height: 80vh; /* Full height, leaving space for other UI elements */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.monaco-editor:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons container styling */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Specific button styles */
+.save-sql {
+  background-color: #3498db;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.save-sql:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+}
+
+.create-file {
+  background-color: #2ecc71;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.create-file:hover {
+  background-color: #27ae60;
+  transform: translateY(-3px);
+}
+
+.toggle-dark-mode {
+  background-color: #f39c12;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.toggle-dark-mode:hover {
+  background-color: #e67e22;
+  transform: translateY(-3px);
+}
+
+.show-files {
+  background-color: #8e44ad;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.show-files:hover {
+  background-color: #9b59b6;
+  transform: translateY(-3px);
+}
+
+.execute-sql {
+  background-color: #e74c3c;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.execute-sql:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px);
+}
+
+.run-selected-query {
+  background-color: #f39c12;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.run-selected-query:hover {
+  background-color: #e67e22;
+  transform: translateY(-3px);
+}
+
+/* File actions table styling */
+.files-container {
+  margin-top: 30px;
+}
+
+.files-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.files-table th, .files-table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.files-table th {
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+}
+
+.files-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.files-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.file-actions button {
+  margin-right: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.file-actions button:hover {
+  transform: scale(1.05);
+  background-color: #3498db;
+}
+
+.file-info {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Execution result styling */
+.execution-result {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.execution-result h3 {
+  margin-bottom: 15px;
+  color: #3498db;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.result-table th, .result-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.result-table th {
+  background-color: #3498db;
+  color: white;
+}
+
+.result-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.result-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Error styling */
+.error {
+  background-color: #e74c3c;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.sql-compiler-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sql-compiler-header h1 {
+  font-size: 36px;
+  color: #0056b3; /* Dark Blue */
+}
+
+.sql-compiler-header p {
+  font-size: 18px;
+  color: #555;
+}
+.file-actions {
+  display: flex;
+  gap: 10px; /* Space between the Edit and Delete buttons */
+}
+
+.edit-file,
+.delete-file {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #0056b3; /* Dark Blue */
+  transition: color 0.3s ease;
+}
+
+.edit-file:hover,
+.delete-file:hover {
+  color: #daad3a; /* Golden color on hover */
+}
+/* In your styles (e.g., SqlCompiler.css) */
+.monaco-editor-container {
+  width: 100%;
+  height: 1000px;  /* You can change this as needed */
+  margin: 0;
+  padding: 0;
+}
+
+/* Increase the size of the textarea */
+.sql-textarea {
+  width: 100%;   /* Makes the textarea take full width of its container */
+  height: 400px; /* Sets a fixed height */
+  resize: vertical; /* Allow resizing vertically */
+  padding: 12px; /* Adds padding inside the textarea */
+  font-size: 16px; /* Larger text size */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark mode adjustments */
+.sql-textarea.dark-mode-textarea {
+  background-color: #34495e; /* Dark background */
+  color: #ecf0f1; /* Light text */
+  border-color: #2980b9; /* Border color for dark mode */
+}
